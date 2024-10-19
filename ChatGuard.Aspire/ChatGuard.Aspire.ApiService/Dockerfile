@@ -29,5 +29,10 @@ RUN dotnet publish "./ChatGuard.Aspire.ApiService.csproj" -c $BUILD_CONFIGURATIO
 # Этот этап используется в рабочей среде или при запуске из VS в обычном режиме (по умолчанию, когда конфигурация отладки не используется)
 FROM base AS final
 WORKDIR /app
+
+ENV ApiId=""
+ENV ApiHash=""
+ENV BotToken=""
+
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "ChatGuard.Aspire.ApiService.dll"]

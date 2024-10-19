@@ -1,0 +1,19 @@
+# ChatGuard Telegram Bot
+### Описание
+ChatGuard — это телеграмм-бот, который может удалять пользователя из всех чатов, к которым он имеет доступ. Бот упрощает процесс удаления пользователей, требуя только указания профиля без необходимости добавления символа @ перед никнеймом.
+Требования
+Регистрация API в Telegram: Для работы бота требуется API ID и API Hash, которые можно получить, зарегистрировавшись в Telegram по ссылке my.telegram.org/auth.
+
+Запуск через Docker Compose:
+``` yaml
+services:
+  chatguard:
+    image: localhost:5000/chatguardaspireapiservice:latest
+    environment:
+      - UserConfiguration__ApiId=23510698
+      - UserConfiguration__ApiHash=48712e2470c085322320b6c5e086e740
+      - UserConfiguration__BotToken=2145792151:AAEWto4wGKk2OhDMBwYRE2WOllGo2wQiQc0
+    ports:
+      - "25410:8080"
+      - "25411:8081"
+```
