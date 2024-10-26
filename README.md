@@ -8,7 +8,7 @@ ChatGuard — это телеграмм-бот, который может уда
 ``` yaml
 services:
   chatguard:
-    image: localhost:5000/chatguardaspireapiservice:latest
+    image: masterworgen/chatguard:latest
     environment:
       - UserConfiguration__ApiId=23510698
       - UserConfiguration__ApiHash=48712e2470c085322320b6c5e086e740
