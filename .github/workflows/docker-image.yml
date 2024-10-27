@@ -1,0 +1,26 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      # Логин в Docker Hub
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+      # Сборка Docker-образа
+      - name: Build the Docker image
+        run: docker build . --file ChatGuard.Aspire/ChatGuard.Aspire.ApiService/Dockerfile --tag masterworgen/chatguard:latest
+
+      # Отправка образа в Docker Hub
+      - name: Push Docker image to Docker Hub
+        run: docker push masterworgen/chatguard:latest

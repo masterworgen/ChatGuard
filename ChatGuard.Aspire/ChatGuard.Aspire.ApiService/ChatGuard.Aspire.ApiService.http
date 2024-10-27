@@ -1,0 +1,13 @@
+﻿@ChatGuard.Aspire.ApiService_HostAddress = https://localhost:7356
+
+GET {{ChatGuard.Aspire.ApiService_HostAddress}}/dismiss-user?username=serov_nikolay
+
+###
+
+GET {{ChatGuard.Aspire.ApiService_HostAddress}}/dismiss-user
+
+###
+
+GET {{ChatGuard.Aspire.ApiService_HostAddress}}/dismiss-user
+
+###
